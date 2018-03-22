@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/normalize";
+@import "assets/scss/variables";
+@import "assets/scss/presets";
+@import "assets/scss/presets";
+
+body {
+  font-family: $text-font, sans-serif;
+  line-height: 1.75;
+  overflow-x: hidden;
+  opacity: 1;
+  color: $text-white-color;
+  font-size: $text-size;
+
+  height: 100vh;
+  background-image: url(assets/image/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $overlay-background-color;
+    opacity: $overlay-background-opacity;
+  }
+
+  app-root {position:relative; z-index: 1;}
+}
+
+h1 {
+ color: $text-white-color;
+ font-size: 36px;
+ line-height: 1;
+ font-family: $logo-font;
+ margin: 0;
+ padding: 0;
+ transform: scaleX(1.3);
+}
+
+
