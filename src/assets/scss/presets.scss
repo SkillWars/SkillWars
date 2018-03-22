@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+.grid {display: grid;}
+.flex {display: flex;}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.btn-reset {
+  background: none;
+  border: 0;
+  outline: none;
+  color: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+}
+
