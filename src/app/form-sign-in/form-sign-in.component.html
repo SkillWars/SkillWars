@@ -1,4 +1,4 @@
-<form class="sign-in-form flex">
+<form class="sign-in-form flex" (ngSubmit)="f.form.valid && autorize()">
   <input class="inp-sign" placeholder="Enter login">
   <input class="inp-sign" placeholder="Enter password" type="password">
   <div class="buttons flex">

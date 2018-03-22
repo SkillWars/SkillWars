@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../Additional/_servises/user.service';
+import {AuthenticationService} from '../Additional/_servises/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-sign-in',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormSignInComponent implements OnInit {
 
-  constructor() { }
+  model: any;
+  loading: any;
 
-  ngOnInit() {
+  constructor(
+   // private router: Router,
+    private authenticationService: AuthenticationService,
+    private userService: UserService
+  ) {
   }
 
+  ngOnInit() {
+    // reset login status
+    this.authenticationService.logout();
+    console.log()
+  }
+
+  autorize() {
+    this.loading = true;
+    this.authenticationService.login(this.model.login, this.model.password)
+      .subscribe(
+        data => {
+          //this.router.navigate([]);
+
+        },
+        error => {
+          this.loading = false;
+
+        });
+  }
 }
