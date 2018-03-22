@@ -1,0 +1,77 @@
+@import "../../assets/scss/variables";
+.forgotModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.9);
+  z-index: 2;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+  display: none;
+  &:target{pointer-events:auto; display: flex; align-items: center; justify-content: center; &>div {animation-name:bounce;}}
+  &>div {
+    animation: minimise 500ms linear;
+    .content {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px;
+      button {margin-top: 10px;}
+    }
+    .content-okay {
+      display: none;
+      flex-direction: column;
+      svg {height: 70px; width: auto; margin-bottom: 0px;}
+      padding: 15px 45px 15px 45px;
+    }
+    background-color: $text-dark-color;
+    position: relative;
+    .close {
+      background-color: $pink-accent;
+      color: #FFFFFF;
+      position: absolute;
+      right: -12px;
+      top: -10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color .2s ease;
+      svg {width: auto; height: 17px; fill:$text-white-color; transition: fill .2s ease;}
+      &:hover {background-color:darken($pink-accent, 5%);}
+    }
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale3d(0.1,0.1,1);
+    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+  }
+  55% {
+    transform: scale3d(1.08,1.08,1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0);
+  }
+  75% {
+    transform: scale3d(0.95,0.95,1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+  }
+  100% {
+    transform: scale3d(1,1,1);
+    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+  }
+}
+
+@-webkit-keyframes minimise {
+  0% {
+    transform: scale3d(1,1,1);
+  }
+  100% {
+    transform: scale3d(0.1,0.1,1);
+  }
+}
+
+
