@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables";
+.btn {
+  background-color: $pink-accent;
+  border: none;
+  color: $text-white-color;
+  font-family: $text-font;
+  font-size: 14px;
+  outline: none;
+  padding: 10px 45px;
+  transition: background-color .2s ease;
+  &:hover {cursor: pointer; background-color: lighten($pink-accent, 1%);}
+  &:focus {cursor: pointer; background-color: lighten($pink-accent, 1%);}
+  &:active {cursor: pointer; background-color: darken($pink-accent, 1%);}
+}
+
+.btn-steam {
+  padding: 0px 10px;
+  svg {height: 24px; width: auto; fill: #eee;}
+}
