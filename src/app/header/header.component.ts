@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openSign() {
+    document.getElementById('sign').classList.add('sign-active');
   }
 
 }
