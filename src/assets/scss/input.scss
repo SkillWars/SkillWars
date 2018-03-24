@@ -1,0 +1,23 @@
+@import "../../assets/scss/variables";
+.inp {
+  font-family: $text-font;
+  font-size: 14px;
+  color: $text-dark-color;
+  &::placeholder{color:$text-dark-color;}
+  outline: none;
+  padding: 8px 15px;
+  border: 2px solid $pink-accent;
+}
+
+.inp-sign {
+  font-family: $text-light-font;
+  font-size: 14px;
+  color: $text-white-color;
+  &::placeholder {color:$text-white-color;}
+  background-color: rgba(28, 28, 28, .9);
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  transition: background-color .2s ease;
+  &:focus {background-color: lighten(rgba(28, 28, 28, .9), 2%);}
+}

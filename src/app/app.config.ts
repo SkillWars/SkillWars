@@ -1,3 +1,3 @@
 ﻿export class AppConfig {
-    public readonly apiUrl = 'http://skillbattle.azurewebsites.net/api';
-};
+    public apiUrl = 'https://skillwars.azurewebsites.net/api';
+}
