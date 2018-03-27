@@ -15,6 +15,9 @@ import {AuthenticationService} from "./Additional/_servises/authentication.servi
 import {AlertService} from "./Additional/_servises/alert.service";
 import {AuthGuard} from "./Additional/_guards/auth.guard";
 import {AppConfig} from "./app.config";
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import {routing} from "./app.routing";
+import { RestorePasswordComponent } from './restore-password/restore-password.component';
 
 
 @NgModule({
@@ -24,12 +27,15 @@ import {AppConfig} from "./app.config";
     SignComponent,
     FormSignInComponent,
     FormSignUpComponent,
-    FormForgotModalComponent
+    FormForgotModalComponent,
+    ConfirmEmailComponent,
+    RestorePasswordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [
     AppConfig,

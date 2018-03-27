@@ -29,9 +29,9 @@ export class FormSignUpComponent implements OnInit {
         },
         err => {
           console.log(err.statusText);
-          console.log(err)
+          console.log(err);
         }
-    )
+    );
   }
 
 }
