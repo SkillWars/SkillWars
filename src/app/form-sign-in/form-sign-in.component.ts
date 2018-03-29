@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../Additional/_servises/authentication.service';
 
 @Component({
   selector: 'app-form-sign-in',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormSignInComponent implements OnInit {
 
-  constructor() { }
+  model: any = {};
+  visibleError: boolean;
 
-  ngOnInit() {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
+  ngOnInit() {
+    this.authenticationService.logout();
+  }
+
+  autorize() {
+    console.log(this.model);
+    this.authenticationService.login(this.model.login, this.model.password)
+      .subscribe(
+        data => {
+          this.visibleError = false;
+        },
+        error => {
+          this.visibleError = true;
+        });
+
+  }
 }

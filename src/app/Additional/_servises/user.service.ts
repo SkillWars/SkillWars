@@ -25,7 +25,7 @@ export class UserService {
 
   forgot(email: string) {
     console.log(email);
-    return this.http.put(this.config.apiUrl + "/Login/ForgotPassword", "\"" + email + "\"", {headers: this.headers}).map((response: Response) => {
+    return this.http.put(this.config.apiUrl + "/Login/RestorePasswordByEmail", "\"" + email + "\"", {headers: this.headers}).map((response: Response) => {
       let res = response.json();
       if (res.errorDescription) {
         let alerts = res.errorDescription;
@@ -33,17 +33,18 @@ export class UserService {
     });
   }
 
-  confirmForgot(token: string, newPassword: string) {
-    return this.http.put(this.config.apiUrl + "/Account/ForgotPasswordConfirm", {
+  confirmForgot(token: string, newPassword: string, confirmPassword: string) {
+    return this.http.put(this.config.apiUrl + "/Login/RestorePasswordByEmailConfirm", {
       token: token,
-      newPassword: newPassword
+      password: newPassword,
+      confirmPassword: confirmPassword
     }, {headers: this.headers}).map((response: Response) => {
       let result = response.json();
     });
   }
 
   confirmRegister(tokens: string) {
-    return this.http.get(this.config.apiUrl + "/Login/Confirm/" + tokens).map((response: Response) => {
+    return this.http.get(this.config.apiUrl + "/Login/ConfirmEmail/" + tokens).map((response: Response) => {
       response.statusText;
     });
   }
