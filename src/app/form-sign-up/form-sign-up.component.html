@@ -1,6 +1,9 @@
 <form class="sign-up-form flex" (ngSubmit)="f.form.valid && registerUser()" #f="ngForm">
   <input class="inp-sign" placeholder="Enter email" type="email" name="email" [(ngModel)]="model.email" #email="ngModel"
          required email>
+  <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+    Некорректный email
+  </div>
   <input class="inp-sign" placeholder="Enter nickname" type="text" name="nickname" [(ngModel)]="model.nickname"
          #nickname="ngModel" required>
   <input class="inp-sign" placeholder="Enter password" type="password" name="password" [(ngModel)]="model.password"
@@ -8,7 +11,8 @@
   <input class="inp-sign" placeholder="Confirm password" type="password" name="confirmPassword"
          [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required>
   <div class="buttons flex">
-    <button class="btn">Sign Up</button>
+    <button class="btn" [disabled]="loading">Sign Up</button>
+    <div class="modal" *ngIf="loading"><!-- Place at bottom of page --></div>
   </div>
   <div class="valid-error flex" *ngIf="visibleErrorRegister == true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486.463 486.463" width="512" height="512">

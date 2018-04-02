@@ -7,7 +7,7 @@ import {UserService} from '../Additional/_servises/user.service';
   styleUrls: ['./form-sign-up.component.scss']
 })
 export class FormSignUpComponent implements OnInit {
-
+  loading: boolean;
   visibleErrorRegister: boolean;
   model: any = {};
 
@@ -18,6 +18,7 @@ export class FormSignUpComponent implements OnInit {
   }
 
   registerUser() {
+    this.loading = true;
     this.userServise.userRegistration(
       this.model.email,
       this.model.nickname,
@@ -25,9 +26,11 @@ export class FormSignUpComponent implements OnInit {
       this.model.confirmPassword,
       '0').subscribe(
         res => {
+          this.loading = false;
           console.log(res.json());
         },
         err => {
+          this.loading = false;
           console.log(err.statusText);
           console.log(err);
         }

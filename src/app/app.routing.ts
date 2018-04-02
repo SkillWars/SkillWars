@@ -4,10 +4,11 @@ import {FormSignInComponent} from "./form-sign-in/form-sign-in.component";
 import {SignComponent} from "./sign/sign.component";
 import {ConfirmEmailComponent} from "./confirm-email/confirm-email.component";
 import {RestorePasswordComponent} from "./restore-password/restore-password.component";
+import {TableComponent} from "./table/table.component";
 
 
 const appRoutes: Routes = [
-    //{ path: '',  canActivate: [AuthGuard] },
+    { path: 'table',  component: TableComponent,canActivate: [AuthGuard] },
     { path: 'sign', component:  SignComponent },
     { path: 'confirm', component: ConfirmEmailComponent},
     { path: 'restore', component: RestorePasswordComponent},

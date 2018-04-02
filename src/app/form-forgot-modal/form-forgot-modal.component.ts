@@ -28,7 +28,7 @@ export class FormForgotModalComponent implements OnInit {
           this.checkEmail == true;
         },
         err => {
-          alert("Щось пішло не так))")
+          alert("Щось пішло не так))");
           this.checkEmail == false;
         }
 

@@ -18,6 +18,7 @@ import {AppConfig} from "./app.config";
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import {routing} from "./app.routing";
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RestorePasswordComponent } from './restore-password/restore-password.co
     FormSignUpComponent,
     FormForgotModalComponent,
     ConfirmEmailComponent,
-    RestorePasswordComponent
+    RestorePasswordComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
