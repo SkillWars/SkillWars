@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../Additional/_servises/user.service';
 import {AuthenticationService} from '../Additional/_servises/authentication.service';
 import {Router} from '@angular/router';
+=======
+import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../Additional/_servises/authentication.service';
+>>>>>>> 243bc677637c8692a00799fce868e752858fa781
 
 @Component({
   selector: 'app-form-sign-in',
@@ -10,6 +15,7 @@ import {Router} from '@angular/router';
 })
 export class FormSignInComponent implements OnInit {
 
+<<<<<<< HEAD
   model: any;
   loading: any;
 
@@ -38,5 +44,28 @@ export class FormSignInComponent implements OnInit {
           this.loading = false;
 
         });
+=======
+  model: any = {};
+  visibleError: boolean;
+
+  constructor(private authenticationService: AuthenticationService) {
+  }
+
+  ngOnInit() {
+    this.authenticationService.logout();
+  }
+
+  autorize() {
+    console.log(this.model);
+    this.authenticationService.login(this.model.login, this.model.password)
+      .subscribe(
+        data => {
+          this.visibleError = false;
+        },
+        error => {
+          this.visibleError = true;
+        });
+
+>>>>>>> 243bc677637c8692a00799fce868e752858fa781
   }
 }
