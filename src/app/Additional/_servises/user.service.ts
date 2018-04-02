@@ -63,15 +63,10 @@ export class UserService {
   }
 
   steamAuth(id: string){
-    return this.http.post(this.config.apiUrl + "/Account/Token/" + id, {headers: this.headers})
+    return this.http.post(this.config.apiUrl + "/Login/Token/" + id ,  "",{headers: this.headers})
       .map(response => response.json())
       .map(steamResponse => {
-        return steamResponse.map(steam => {
-          return {
-            errorCode: steam.errorCode,
-            errorDescription: steam.errorDescription
-          }
-        })
+        localStorage.setItem("currentUser", steamResponse.token);
       })
   }
 

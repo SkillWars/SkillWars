@@ -5,6 +5,7 @@ import {SignComponent} from "./sign/sign.component";
 import {ConfirmEmailComponent} from "./confirm-email/confirm-email.component";
 import {RestorePasswordComponent} from "./restore-password/restore-password.component";
 import {TableComponent} from "./table/table.component";
+import {SteamAuthComponent} from "./steam-auth/steam-auth.component";
 
 
 const appRoutes: Routes = [
@@ -12,9 +13,9 @@ const appRoutes: Routes = [
     { path: 'sign', component:  SignComponent },
     { path: 'confirm', component: ConfirmEmailComponent},
     { path: 'restore', component: RestorePasswordComponent},
+    { path: 'steam', component: SteamAuthComponent},
     //{ path: 'lobby', component: LobbyComponent},
     //{ path: 'steam-register', component: SteamRegisterComponent},
-    //{ path: 'steam-auth', component: SteamAuthComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
