@@ -36,4 +36,9 @@ export class FormSignInComponent implements OnInit {
 
   }
 
+    openModalWindow () {
+      const elem = document.getElementById("forgotPasswordModalWindow");
+      elem.style.display = "block";
+    }
+
 }
