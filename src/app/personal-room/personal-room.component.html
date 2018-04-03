@@ -1,0 +1,25 @@
+<div class="grid">
+  <div>
+    <input class="inp" type="text" placeholder="Khoma" name="newNick" required>
+    <button class="btn" (click)="changeNickname()">Змінити логін</button>
+  </div>
+  <div>
+    <input class="inp" type="password" placeholder="Новий пароль" name="newPassword"
+           [(ngModel)]="modelChangePassword.newPassword" #newPassword="ngModel" required>
+    <input class="inp" type="password" placeholder="Підтвердити пароль" name="confirmNewPassword"
+           [(ngModel)]="modelChangePassword.confirmNewPassword" required>
+    <input class="inp change-password-mt" type="password" placeholder="Старий пароль" name="oldPassword"
+           [(ngModel)]="modelChangePassword.oldPassword" required>
+    <button class="btn change-password-mt" (click)="changePassword()">Змінити пароль</button>
+  </div>
+
+  <div>
+    <input class="inp" type="text" placeholder="khoma@gmail.com">
+    <button class="btn">Змінити email</button>
+  </div>
+  <div>
+    <input class="inp" type="tel" placeholder="Новий номер телефону" name="phone" required>
+    <button class="btn" (click)="changePhoneNumber()">Змінити номер</button>
+  </div>
+
+</div>

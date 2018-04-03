@@ -49,37 +49,33 @@ export class UserService {
     });
   }
 
-  getLobbyById(id: number) {
-    return this.http.get(this.config.apiUrl + "/Lobbies/" + id + "/Players" + "", this.jwt())
-      .map(response => response.json())
-      .map(lobbyInfo => {
-        return lobbyInfo.map(teams => {
-          return {
-            firstTeamId: teams[0].id,
-            firstTeamType: teams[0].teamType
-          }
-        })
-      })
-  }
-
   steamAuth(id: string){
     return this.http.post(this.config.apiUrl + "/Login/Token/" + id ,  "",{headers: this.headers})
       .map(response => response.json())
       .map(steamResponse => {
-        localStorage.setItem("currentUser", steamResponse.token);
+        console.log(steamResponse);
+        localStorage.setItem("currentUser", JSON.stringify(steamResponse));
       })
   }
 
-  steamRegisters(email: string, phoneNumber: string){
-    return this.http.post(this.config.apiUrl + "/Account/SteamRegisters", {
-      steamId: localStorage.getItem("steamId"),
-      email: email,
-      phoneNumber: phoneNumber
-    },
-      {headers: this.headers})
-      .map(response => response.json())
+  newNickname(nickName: string){
+    return this.http.put(this.config.apiUrl + "/Account/NickName","" + nickName + "", this.jwt())
+      .map(response => response.json());
   }
 
+  newPassword(oldPassword: string, newPassword: string, confirmNewPassword: string){
+    return this.http.post(this.config.apiUrl + "/Account/Password", {
+      oldPassword: oldPassword,
+      password: newPassword,
+      confirmPassword: confirmNewPassword
+    }, this.jwt())
+      .map((response) => response.json());
+  }
+
+  changePhoneNumber(phone: string){
+    this.http.put(this.config.apiUrl + "Account/PhoneNumber", phone, this.jwt())
+      .map(response => response.json());
+  }
   // private helper methods
 
   private jwt() {

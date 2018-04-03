@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%;
+    height: 100vh;
   }
 }
 
@@ -49,6 +49,16 @@ h1 {
  margin: 0;
  padding: 0;
  transform: scaleX(1.3);
+}
+
+app-sign, app-restore-password, app-confirm-email, app-personal-room {
+  display: flex;
+  height: 100%;
+}
+
+app-confirm-email, app-personal-room {
+  justify-content: center;
+  align-items: center;
 }
 
 
